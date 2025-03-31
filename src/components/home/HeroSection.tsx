@@ -146,10 +146,10 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/50 to-transparent z-20"></div>
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/50 to-transparent z-20"></div>
 
-      {/* Carousel navigation arrows */}
+      {/* Carousel navigation arrows - improve mobile accessibility */}
       <motion.button 
         onClick={goToPrevSlide}
-        className="absolute left-6 md:left-10 z-30 bg-white/15 hover:bg-white/25 text-white rounded-full p-3 md:p-4 backdrop-blur-sm border border-white/20"
+        className="absolute left-2 sm:left-6 md:left-10 z-40 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 md:p-4 backdrop-blur-sm border border-white/20 touch-manipulation"
         aria-label="Previous slide"
         whileHover={{ scale: 1.1, x: -3 }}
         whileTap={{ scale: 0.95 }}
@@ -157,13 +157,13 @@ export default function HeroSection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </motion.button>
       <motion.button 
         onClick={goToNextSlide}
-        className="absolute right-6 md:right-10 z-30 bg-white/15 hover:bg-white/25 text-white rounded-full p-3 md:p-4 backdrop-blur-sm border border-white/20"
+        className="absolute right-2 sm:right-6 md:right-10 z-40 bg-white/20 hover:bg-white/30 text-white rounded-full p-3 md:p-4 backdrop-blur-sm border border-white/20 touch-manipulation"
         aria-label="Next slide"
         whileHover={{ scale: 1.1, x: 3 }}
         whileTap={{ scale: 0.95 }}
@@ -171,7 +171,7 @@ export default function HeroSection() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3 }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </motion.button>
