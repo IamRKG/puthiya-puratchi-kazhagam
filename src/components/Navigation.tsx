@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import PartyFlag from "./PartyFlag";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,7 +49,18 @@ export default function Navigation() {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <PartyFlag width={45} height={45} className="mr-3" />
+            {/* <PartyFlag width={45} height={45} className="mr-3" /> */}
+             <Image
+                            src={"/logo.png"}
+                            width={60}
+                            height={60}
+                            alt={"logo"}
+                            className="mr-3"
+                            
+                          
+                          
+                            // Increased brightness for better visibility
+                          />
             <div className="text-lg sm:text-xl font-bold text-[#000080]">
               <span className="hidden sm:inline">புதிய புரட்சி கழகம்</span>
               <span className="sm:hidden">புதிய புரட்சி கழகம்</span>
