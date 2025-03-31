@@ -144,7 +144,7 @@ export default function LeadersSection() {
               </div>
               
               <div className="p-6">
-                <p className="text-gray-600 italic mb-4">"{leader.quote}"</p>
+                <p className="text-gray-600 italic mb-4">&quot;{leader.quote}&quot;</p>
                 
                 <motion.div 
                   className={`h-1 w-0 bg-[#000080] rounded-full mt-4 transition-all duration-500 ${

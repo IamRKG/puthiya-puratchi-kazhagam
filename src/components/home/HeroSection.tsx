@@ -96,7 +96,7 @@ export default function HeroSection() {
     setCurrentSlide((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
   }, [pauseAutoPlay]);
 
-  const goToSlide = useCallback((index:any) => {
+  const goToSlide = useCallback((index:number) => {
     pauseAutoPlay();
     setCurrentSlide(index);
   }, [pauseAutoPlay]);

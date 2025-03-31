@@ -30,7 +30,7 @@ const itemVariants = {
 };
 
 export default function Footer() {
-  const [emailFocus, setEmailFocus] = useState(false);
+  const [, setEmailFocus] = useState(false);
   const [email, setEmail] = useState("");
 
   const currentYear = new Date().getFullYear();
