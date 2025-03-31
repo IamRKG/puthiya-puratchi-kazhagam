@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Outer circle -->
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#000080" stroke-width="2"/>
+  
+  <!-- Inner circle -->
+  <circle cx="50" cy="50" r="8" fill="#000080"/>
+  
+  <!-- 9 spokes -->
+  <g stroke="#000080" stroke-width="2">
+    <!-- Spoke 1 -->
+    <line x1="50" y1="5" x2="50" y2="95"/>
+    
+    <!-- Spoke 2 -->
+    <line x1="15" y1="20" x2="85" y2="80"/>
+    
+    <!-- Spoke 3 -->
+    <line x1="5" y1="50" x2="95" y2="50"/>
+    
+    <!-- Spoke 4 -->
+    <line x1="15" y1="80" x2="85" y2="20"/>
+    
+    <!-- Spoke 5 -->
+    <line x1="20" y1="15" x2="80" y2="85"/>
+    
+    <!-- Spoke 6 -->
+    <line x1="80" y1="15" x2="20" y2="85"/>
+    
+    <!-- Spoke 7 -->
+    <line x1="95" y1="30" x2="5" y2="70"/>
+    
+    <!-- Spoke 8 -->
+    <line x1="95" y1="70" x2="5" y2="30"/>
+    
+    <!-- Spoke 9 -->
+    <line x1="30" y1="5" x2="70" y2="95"/>
+  </g>
+</svg>
