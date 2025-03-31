@@ -1,13 +1,36 @@
 @import "tailwindcss";
 
 :root {
+  /* Primary party colors */
+  --navy-blue: #000080;
+  --navy-blue-light: #0000b3;
+  --white: #ffffff;
+  
+  /* Base theme colors */
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Additional UI colors */
+  --gray-light: #f5f5f5;
+  --gray-medium: #e0e0e0;
+  --gray-dark: #333333;
 }
 
 @theme inline {
+  /* Primary colors */
+  --color-primary: var(--navy-blue);
+  --color-secondary: var(--white);
+  
+  /* Background and text colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  
+  /* UI element colors */
+  --color-ui-light: var(--gray-light);
+  --color-ui-medium: var(--gray-medium);
+  --color-ui-dark: var(--gray-dark);
+  
+  /* Font families */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,11 +39,58 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --gray-light: #222222;
+    --gray-medium: #444444;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+}
+
+/* Party flag specific styles */
+.party-flag-container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.party-flag-top,
+.party-flag-bottom {
+  background-color: var(--navy-blue);
+}
+
+.party-flag-middle {
+  background-color: var(--white);
+}
+
+.party-wheel {
+  color: var(--navy-blue);
+}
+
+/* Button styles based on party colors */
+.btn-primary {
+  background-color: var(--navy-blue);
+  color: var(--white);
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--navy-blue-light);
+}
+
+.btn-secondary {
+  background-color: var(--white);
+  color: var(--navy-blue);
+  border: 2px solid var(--navy-blue);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--navy-blue);
+  color: var(--white);
 }
