@@ -17,7 +17,7 @@ export default function LeadersHero() {
           priority
           className="filter brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#000066]/90 via-[#000099]/90 to-[#0000cc]/90 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#000050]/75 via-[#000080]/80 to-[#0000a0]/75 backdrop-blur-[2px] z-10"></div>
       </div>
 
       {/* Decorative elements */}
@@ -91,6 +91,7 @@ export default function LeadersHero() {
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

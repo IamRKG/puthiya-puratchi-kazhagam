@@ -37,7 +37,7 @@ const promises = [
 
 export default function ManifestoPromises() {
   return (
-    <section className="relative py-12 bg-gradient-to-br from-[#000066] via-[#000099] to-[#0000cc] overflow-hidden">
+    <section className="relative py-12 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-5"></div>
       
       <div className="container mx-auto px-4 relative">
@@ -48,10 +48,17 @@ export default function ManifestoPromises() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#000080] mb-3">
             எங்கள் வாக்குறுதிகள்
           </h2>
-          <p className="text-base sm:text-lg text-white/80">
+          <motion.div 
+            className="h-1 w-20 bg-gradient-to-r from-[#000080] to-[#000080]/60 mx-auto rounded-full mb-4"
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          ></motion.div>
+          <p className="text-base sm:text-lg text-[#000080]/80">
             மக்களின் வாழ்க்கைத் தரத்தை உயர்த்த நாங்கள் கொடுத்துள்ள உறுதிமொழிகள்
           </p>
         </motion.div>
@@ -65,17 +72,17 @@ export default function ManifestoPromises() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 shadow-lg hover:shadow-xl group"
+              className="bg-gradient-to-br from-[#000066]/85 via-[#000099]/90 to-[#0000cc]/85 p-6 rounded-xl border border-[#000080]/10 hover:border-[#000080]/20 transition-all duration-300 shadow-lg hover:shadow-xl group"
             >
               <div className="text-white mb-4 group-hover:scale-110 transition-transform">
-                <div className="w-12 h-12 bg-gradient-to-br from-white/15 to-white/5 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
                   {promise.icon}
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-white/90 transition-colors">
                 {promise.title}
               </h3>
-              <p className="text-white/80 group-hover:text-white transition-colors">
+              <p className="text-white/90 group-hover:text-white transition-colors">
                 {promise.description}
               </p>
             </motion.div>
@@ -90,7 +97,7 @@ export default function ManifestoPromises() {
         >
           <motion.a 
             href="/join"
-            className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-white to-white/90 text-[#000066] rounded-full text-lg font-bold hover:from-white/95 hover:to-white/85 transition-all shadow-xl hover:shadow-2xl"
+            className="inline-flex items-center px-8 py-3 bg-gradient-to-br from-[#000066]/85 via-[#000099]/90 to-[#0000cc]/85 text-white rounded-full text-lg font-bold hover:shadow-lg transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

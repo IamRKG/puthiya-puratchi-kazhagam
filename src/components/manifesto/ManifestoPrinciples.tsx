@@ -49,7 +49,7 @@ const principles = [
 
 export default function ManifestoPrinciples() {
   return (
-    <section className="relative py-12 bg-gradient-to-br from-[#000066] via-[#000099] to-[#0000cc] overflow-hidden">
+    <section className="relative py-12 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-5"></div>
       
       <div className="container mx-auto px-4 relative">
@@ -60,10 +60,17 @@ export default function ManifestoPrinciples() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#000080] mb-3">
             அடிப்படை கொள்கைகள்
           </h2>
-          <p className="text-base sm:text-lg text-white/80">
+          <motion.div 
+            className="h-1 w-20 bg-gradient-to-r from-[#000080] to-[#000080]/60 mx-auto rounded-full mb-4"
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          ></motion.div>
+          <p className="text-base sm:text-lg text-[#000080]/80">
             தமிழக மக்களின் நலனுக்காக நாங்கள் உறுதியாக கடைபிடிக்கும் கொள்கைகள்
           </p>
         </motion.div>
@@ -77,17 +84,17 @@ export default function ManifestoPrinciples() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-br from-[#000066]/85 via-[#000099]/90 to-[#0000cc]/85 p-6 rounded-lg border border-[#000080]/10 hover:border-[#000080]/20 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <div className="text-white mb-4 group-hover:scale-110 transition-transform">
-                <div className="w-12 h-12 bg-gradient-to-br from-white/15 to-white/5 rounded-lg flex items-center justify-center">
+                <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
                   {principle.icon}
                 </div>
               </div>
               <h3 className="text-xl font-bold text-white mb-2">
                 {principle.title}
               </h3>
-              <p className="text-white/80 leading-relaxed">
+              <p className="text-white/90 leading-relaxed">
                 {principle.description}
               </p>
             </motion.div>

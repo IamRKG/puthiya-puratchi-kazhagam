@@ -44,7 +44,7 @@ const leaders = [
 
 export default function LeadershipTeam() {
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-br from-[#000066] via-[#000099] to-[#0000cc] relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-5"></div>
       
       <div className="container mx-auto px-4 relative">
@@ -54,9 +54,9 @@ export default function LeadershipTeam() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">தலைமைப் பொறுப்பாளர்கள்</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#000080] mb-4">தலைமைப் பொறுப்பாளர்கள்</h2>
           <motion.div 
-            className="h-1 w-16 bg-gradient-to-r from-white/90 to-white/60 mx-auto rounded-full"
+            className="h-1 w-16 bg-gradient-to-r from-[#000080] to-[#000080]/60 mx-auto rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: 64 }}
             transition={{ duration: 0.8 }}
@@ -73,7 +73,7 @@ export default function LeadershipTeam() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300"
+              className="bg-gradient-to-br from-[#000066]/85 via-[#000099]/90 to-[#0000cc]/85 rounded-xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300"
             >
               <div className="relative h-64">
                 <Image

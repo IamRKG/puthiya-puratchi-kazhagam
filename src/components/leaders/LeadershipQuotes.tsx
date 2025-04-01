@@ -35,7 +35,7 @@ const quotes = [
 
 export default function LeadershipQuotes() {
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-br from-[#000066] via-[#000099] to-[#0000cc] relative overflow-hidden">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-5"></div>
       
       <div className="container mx-auto px-4 relative">
@@ -45,9 +45,9 @@ export default function LeadershipQuotes() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">தலைவர்களின் சிந்தனைகள்</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#000080] mb-4">தலைவர்களின் சிந்தனைகள்</h2>
           <motion.div 
-            className="h-1 w-16 bg-gradient-to-r from-white/90 to-white/60 mx-auto rounded-full"
+            className="h-1 w-16 bg-gradient-to-r from-[#000080] to-[#000080]/60 mx-auto rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: 64 }}
             transition={{ duration: 0.8 }}
@@ -64,7 +64,7 @@ export default function LeadershipQuotes() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group relative overflow-hidden"
+              className="bg-gradient-to-br from-[#000066]/85 via-[#000099]/90 to-[#0000cc]/85 p-6 md:p-8 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group relative overflow-hidden"
             >
               <div className="absolute -top-4 -left-4 text-white/5 text-[100px] font-serif leading-none">
                 &quot;
