@@ -8,7 +8,7 @@ const principles = [
     title: "சமூக நீதி",
     description: "அனைத்து மக்களுக்கும் சமமான வாய்ப்புகளும் உரிமைகளும்",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     )
@@ -45,72 +45,54 @@ const principles = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 }
-  }
-};
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 }
-  }
-};
 
 export default function ManifestoPrinciples() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-[#000040] via-[#000060] to-[#000080] relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-10"></div>
+    <section className="relative py-12 bg-gradient-to-br from-[#000066] via-[#000099] to-[#0000cc] overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-5"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 relative">
+      <div className="container mx-auto px-4 relative">
         <motion.div 
-          className="max-w-4xl mx-auto text-center mb-16"
+          className="max-w-3xl mx-auto text-center mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
             அடிப்படை கொள்கைகள்
           </h2>
-          <p className="text-lg text-white/90">
+          <p className="text-base sm:text-lg text-white/80">
             தமிழக மக்களின் நலனுக்காக நாங்கள் உறுதியாக கடைபிடிக்கும் கொள்கைகள்
           </p>
         </motion.div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {principles.map((principle) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          {principles.map((principle, index) => (
             <motion.div
               key={principle.id}
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:border-white/30 transition-all duration-300 shadow-xl group"
+              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              <div className="text-white mb-6 group-hover:scale-110 transition-transform duration-300">
-                <div className="w-16 h-16 bg-gradient-to-br from-white/15 to-white/5 rounded-xl flex items-center justify-center group-hover:from-white/20 group-hover:to-white/10">
+              <div className="text-white mb-4 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 bg-gradient-to-br from-white/15 to-white/5 rounded-lg flex items-center justify-center">
                   {principle.icon}
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-yellow-400 mb-4">
+              <h3 className="text-xl font-bold text-white mb-2">
                 {principle.title}
               </h3>
-              <p className="text-lg text-white/90 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 {principle.description}
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
