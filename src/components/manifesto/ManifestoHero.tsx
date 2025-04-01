@@ -12,11 +12,12 @@ export default function ManifestoHero() {
         <Image
           src="/manifesto/manifesto-hero.jpg"
           alt="கொள்கை அறிக்கை"
-          style={{ objectFit: "cover", opacity: 0.5, objectPosition: "top" }}
+          style={{ objectFit: "cover", opacity: 0.6, objectPosition: "top" }}
           fill
           priority
-          className="object-cover opacity-20"
+          className="object-cover opacity-20 mt-10"
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#000066]/70 via-[#000099]/70 to-[#0000cc]/70"></div>
       </div>
 
       <div className="container mx-auto px-4 relative">
@@ -47,7 +48,7 @@ export default function ManifestoHero() {
       </div>
 
       <motion.div 
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer"
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
