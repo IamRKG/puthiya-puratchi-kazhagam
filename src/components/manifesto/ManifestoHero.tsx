@@ -45,6 +45,27 @@ export default function ManifestoHero() {
           </motion.div>
         </div>
       </div>
+      <motion.div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 cursor-pointer flex flex-col items-center justify-center"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.8 }}
+        onClick={() => {
+          const nextSection = document.getElementById('manifestoPrinciples');
+          nextSection?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <motion.div
+          className="w-6 h-10 border-2 border-white/30 rounded-full p-1 hover:border-white/50"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+          <div className="w-full h-3 bg-white/80 rounded-full"></div>
+        </motion.div>
+        <p className="text-white/70 text-sm mt-2 text-center hover:text-white/90 transition-colors ">கீழே செல்லவும்</p>
+      </motion.div>
     </section>
   );
 }
