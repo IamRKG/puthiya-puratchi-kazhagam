@@ -6,7 +6,7 @@ import Image from "next/image";
 const leaders = [
   {
     id: 1,
-    name: "",
+    name: "தலைவர்",
     role: "கழகத் தலைவர்",
     image: "/leaders/leader1.png",
     bio: "25 ஆண்டுகளுக்கும் மேலாக சமூக சேவையில் ஈடுபட்டுள்ளார். தமிழக மக்களின் நலனுக்காக பாடுபடும் முன்னோடி.",
@@ -18,7 +18,7 @@ const leaders = [
   },
   {
     id: 2,
-    name: "",
+    name: "செயலாளர்",
     role: "பொதுச் செயலாளர்",
     image: "/leaders/leader1.png", 
     bio: "20 ஆண்டுகால அரசியல் அனுபவம். கழகத்தின் வளர்ச்சிக்கு பெரும் பங்காற்றியவர்.",
@@ -30,47 +30,11 @@ const leaders = [
   },
   {
     id: 3,
-    name: "",
+    name: "தலைவர்",
     role: "மகளிர் அணி தலைவர்",
     image: "/leaders/leader1.png",
     bio: "பெண்கள் மேம்பாட்டிற்காக பாடுபடும் முன்னோடி. 15 ஆண்டுகால சமூக சேவை அனுபவம்.",
     achievements: ["பெண்கள் மேம்பாட்டு விருது", "சமூக நல திட்டங்கள்"],
-    socialMedia: {
-      twitter: "https://twitter.com/username",
-      facebook: "https://facebook.com/username"
-    }
-  },
-  {
-    id: 4,
-    name: "",
-    role: "இளைஞர் அணி தலைவர்",
-    image: "/leaders/leader1.png",
-    bio: "இளைஞர்களின் வளர்ச்சிக்காக பாடுபடுபவர். புதிய தலைமுறையின் குரல்.",
-    achievements: ["இளைஞர் தலைமை விருது", "வேலைவாய்ப்பு திட்டங்கள்"],
-    socialMedia: {
-      twitter: "https://twitter.com/username",
-      facebook: "https://facebook.com/username"
-    }
-  },
-  {
-    id: 5,
-    name: "",
-    role: "விவசாய அணி தலைவர்",
-    image: "/leaders/leader1.png",
-    bio: "விவசாயிகளின் நலனுக்காக குரல் கொடுப்பவர். 30 ஆண்டுகால விவசாய அனுபவம்.",
-    achievements: ["சிறந்த விவசாயி விருது", "விவசாய மேம்பாட்டு திட்டங்கள்"],
-    socialMedia: {
-      twitter: "https://twitter.com/username",
-      facebook: "https://facebook.com/username"
-    }
-  },
-  {
-    id: 6,
-    name: "",
-    role: "தொழிலாளர் அணி தலைவர்",
-    image: "/leaders/leader1.png",
-    bio: "தொழிலாளர் நலனுக்காக போராடும் முன்னோடி. 25 ஆண்டுகால தொழிற்சங்க அனுபவம்.",
-    achievements: ["தொழிலாளர் நல விருது", "தொழிலாளர் நல திட்டங்கள்"],
     socialMedia: {
       twitter: "https://twitter.com/username",
       facebook: "https://facebook.com/username"
@@ -80,27 +44,27 @@ const leaders = [
 
 export default function LeadershipTeam() {
   return (
-    <section className="relative py-16 bg-gradient-to-br from-[#000066] via-[#000099] to-[#0000cc] overflow-hidden">
+    <section className="py-12 md:py-16 bg-gradient-to-br from-[#000066] via-[#000099] to-[#0000cc] relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-5"></div>
       
       <div className="container mx-auto px-4 relative">
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">தலைமைப் பொறுப்பாளர்கள்</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">தலைமைப் பொறுப்பாளர்கள்</h2>
           <motion.div 
-            className="h-1 w-20 bg-gradient-to-r from-white/90 to-white/60 mx-auto rounded-full mb-4"
+            className="h-1 w-16 bg-gradient-to-r from-white/90 to-white/60 mx-auto rounded-full"
             initial={{ width: 0 }}
-            whileInView={{ width: 80 }}
+            whileInView={{ width: 64 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           ></motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {leaders.map((leader, index) => (
             <motion.div
               key={leader.id}
@@ -108,25 +72,26 @@ export default function LeadershipTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300 group"
+              whileHover={{ y: -5 }}
+              className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-300"
             >
-              <div className="relative h-72">
+              <div className="relative h-64">
                 <Image
                   src={leader.image}
                   alt={leader.name}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   style={{ objectFit: "cover" }}
-                  className="group-hover:scale-105 transition-transform duration-500"
+                  className="transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#000066]/80 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000066]/90 to-transparent"></div>
                 
                 <div className="absolute bottom-4 left-4">
                   <h3 className="text-xl font-bold text-white mb-1">{leader.name}</h3>
-                  <p className="text-white/90">{leader.role}</p>
+                  <p className="text-white/90 text-sm">{leader.role}</p>
                 </div>
 
-                <div className="absolute top-4 right-4 flex space-x-2">
+                <div className="absolute top-4 right-4 flex gap-2">
                   {Object.entries(leader.socialMedia).map(([platform, url]) => (
                     <a
                       key={platform}
@@ -142,21 +107,21 @@ export default function LeadershipTeam() {
               </div>
               
               <div className="p-6">
-                <p className="text-white/80 mb-4">{leader.bio}</p>
+                <p className="text-white/80 text-sm mb-4 leading-relaxed">{leader.bio}</p>
                 
                 <div className="space-y-2">
                   {leader.achievements.map((achievement, i) => (
-                    <div key={i} className="flex items-center text-white/90">
-                      <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div key={i} className="flex items-center text-white/90 text-sm">
+                      <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      {achievement}
+                      <span>{achievement}</span>
                     </div>
                   ))}
                 </div>
 
                 <motion.button
-                  className="mt-6 w-full bg-white text-[#000066] py-2 rounded-full font-medium hover:bg-white/90 transition-colors"
+                  className="mt-6 w-full bg-white text-[#000066] py-2.5 rounded-full font-medium text-sm hover:bg-white/90 transition-colors"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
