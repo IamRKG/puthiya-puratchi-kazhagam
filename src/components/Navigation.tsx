@@ -44,19 +44,13 @@ export default function Navigation() {
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo and Title */}
-          <motion.div 
-            className="flex items-center"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            {/* <PartyFlag width={45} height={45} className="mr-3" /> */}
-             <Image
+          <Link href="/" className="flex items-center">
+            <Image
                             src={"/logo.png"}
                             width={60}
                             height={60}
                             alt={"logo"}
                             className="mr-3"
-                            
                           
                           
                             // Increased brightness for better visibility
@@ -66,7 +60,7 @@ export default function Navigation() {
               <span className="sm:hidden">புதிய புரட்சி கழகம்</span>
               {/* பு.பு.க  */}
             </div>
-          </motion.div>
+          </Link>
 
           {/* Mobile Menu Button */}
           <motion.button 
