@@ -5,27 +5,7 @@ import { motion } from "framer-motion";
 const promises = [
   {
     id: 1,
-    title: "குடும்ப நலம்",
-    description: "ஒவ்வொரு குடும்பத்திற்கும் அடிப்படை வசதிகள் மற்றும் வாழ்வாதார உதவிகள்",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    )
-  },
-  {
-    id: 2,
-    title: "பெண்கள் மேம்பாடு",
-    description: "பெண்களுக்கு சுய தொழில் வாய்ப்புகள் மற்றும் பாதுகாப்பு உறுதி",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    )
-  },
-  {
-    id: 3,
-    title: "இளைஞர் மேம்பாடு",
+    title: "வேலைவாய்ப்பு",
     description: "இளைஞர்களுக்கு திறன் மேம்பாடு மற்றும் வேலைவாய்ப்பு உருவாக்கம்",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -34,29 +14,19 @@ const promises = [
     )
   },
   {
-    id: 4,
-    title: "சமூக நலம்",
-    description: "அனைத்து சமூகத்தினருக்கும் சமமான வாய்ப்புகள் மற்றும் உரிமைகள்",
+    id: 2,
+    title: "கல்வி",
+    description: "அனைவருக்கும் தரமான கல்வி மற்றும் திறன் மேம்பாட்டு வாய்ப்புகள்",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
       </svg>
     )
   },
   {
-    id: 5,
-    title: "உள்கட்டமைப்பு",
-    description: "சாலைகள், பாலங்கள், மின்சாரம் மற்றும் குடிநீர் வசதிகள் மேம்பாடு",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    )
-  },
-  {
-    id: 6,
-    title: "சுற்றுச்சூழல்",
-    description: "மரம் வளர்ப்பு, மாசு கட்டுப்பாடு மற்றும் இயற்கை வள பாதுகாப்பு",
+    id: 3,
+    title: "விவசாயம்",
+    description: "விவசாயிகளின் வருமானம் உயர்வு மற்றும் நவீன தொழில்நுட்ப அறிமுகம்",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -69,9 +39,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
+    transition: { staggerChildren: 0.1 }
   }
 };
 
@@ -80,16 +48,14 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5
-    }
+    transition: { duration: 0.5 }
   }
 };
 
 export default function ManifestoPromises() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-5"></div>
+    <section className="py-16 md:py-24 bg-gradient-to-br from-[#000040] via-[#000060] to-[#000080] relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/patterns/dots.svg')] opacity-10"></div>
       
       <div className="container mx-auto px-4 sm:px-6 relative">
         <motion.div 
@@ -99,16 +65,16 @@ export default function ManifestoPromises() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#000080] mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
             எங்கள் வாக்குறுதிகள்
           </h2>
-          <p className="text-lg text-gray-700">
+          <p className="text-lg text-white/90">
             மக்களின் வாழ்க்கைத் தரத்தை உயர்த்த நாங்கள் கொடுத்துள்ள உறுதிமொழிகள்
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -118,15 +84,18 @@ export default function ManifestoPromises() {
             <motion.div
               key={promise.id}
               variants={itemVariants}
-              className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+              whileHover={{ y: -5, scale: 1.02 }}
+              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:border-white/30 transition-all duration-300 shadow-xl group"
             >
-              <div className="text-[#000080] mb-4">
-                {promise.icon}
+              <div className="text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-white/15 to-white/5 rounded-xl flex items-center justify-center group-hover:from-white/20 group-hover:to-white/10">
+                  {promise.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-[#000080] mb-3">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">
                 {promise.title}
               </h3>
-              <p className="text-gray-700">
+              <p className="text-lg text-white/90 leading-relaxed">
                 {promise.description}
               </p>
             </motion.div>
@@ -142,10 +111,10 @@ export default function ManifestoPromises() {
         >
           <a 
             href="/join"
-            className="inline-flex items-center justify-center px-8 py-3 bg-[#000080] text-white rounded-full font-medium hover:bg-[#0000b3] transition-colors"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#000080] rounded-full text-lg font-bold hover:from-yellow-300 hover:to-yellow-400 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
           >
             எங்களுடன் இணைந்து பயணிக்க
-            <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
