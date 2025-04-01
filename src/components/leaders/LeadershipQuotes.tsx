@@ -67,7 +67,7 @@ export default function LeadershipQuotes() {
               className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 group relative overflow-hidden"
             >
               <div className="absolute -top-4 -left-4 text-white/5 text-[100px] font-serif leading-none">
-                "
+                &quot;
               </div>
               
               <div className="relative">
@@ -76,7 +76,7 @@ export default function LeadershipQuotes() {
                 </span>
                 
                 <blockquote className="text-xl md:text-2xl text-white mb-6 leading-relaxed">
-                  "{quote.quote}"
+                  &quot;{quote.quote}&quot;
                 </blockquote>
                 
                 <div className="flex items-center">

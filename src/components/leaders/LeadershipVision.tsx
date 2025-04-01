@@ -100,7 +100,7 @@ export default function LeadershipVision() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#000066]/80 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 md:p-8">
                 <blockquote className="text-xl md:text-2xl font-medium italic mb-3 text-white">
-                  "தமிழகத்தின் எதிர்காலத்தை மாற்றியமைப்போம்"
+                  &quot;தமிழகத்தின் எதிர்காலத்தை மாற்றியமைப்போம்&quot;
                 </blockquote>
                 <p className="text-white/90 text-sm">- கழகத் தலைவர்</p>
               </div>
