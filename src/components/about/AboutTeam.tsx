@@ -174,7 +174,7 @@ export default function AboutTeam() {
 
 function SocialIcon({ platform }: { platform: string }) {
   // Social media icons remain the same
-  return null; // Replace with actual icon components
+  return platform; // Replace with actual icon components
 }
 
 function TeamMemberModal({ member, onClose }: { member: typeof teamMembers[0], onClose: () => void }) {
