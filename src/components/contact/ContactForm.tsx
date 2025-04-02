@@ -28,8 +28,18 @@ export default function ContactForm() {
     setIsSubmitting(true);
     
     try {
-      // API call would go here
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated API call
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       setSubmitStatus('success' as SubmitStatus);
       setFormData({
         name: "",
@@ -38,6 +48,19 @@ export default function ContactForm() {
         district: "",
         message: ""
       });
+
+      // Send confirmation email
+      await fetch('/api/send-confirmation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          name: formData.name
+        }),
+      });
+
     } catch (error) {
       setSubmitStatus(error as SubmitStatus);
     } finally {
