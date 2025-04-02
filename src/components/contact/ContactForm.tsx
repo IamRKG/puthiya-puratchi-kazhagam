@@ -130,7 +130,7 @@ export default function ContactForm() {
       });
 
     } catch (error) {
-      setSubmitStatus('error' as SubmitStatus);
+      setSubmitStatus(error as SubmitStatus);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 3000);
