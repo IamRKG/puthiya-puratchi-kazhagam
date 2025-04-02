@@ -9,9 +9,17 @@ export async function POST(request: Request) {
 
   try {
    
-    const { email, name } = await request.json();
+    const { email, name, phone, district, message } = await request.json();
 
-   
+    
+    console.log('Form Data Received:', {
+      email,
+      name,
+      phone,
+      district,
+      message
+    });
+
     const oauth2Client = new OAuth2(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,
@@ -40,20 +48,28 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: '"புதிய புரட்சி கழகம்" <radhacreative@gmail.com>',
-      to: email,
+      from:email ,
+      to: `புதிய புரட்சி கழகம் <${process.env.EMAIL_USER}>`,
       subject: 'தொடர்பு கொண்டமைக்கு நன்றி',
       html: `
-        <h2>வணக்கம் ${name},</h2>
-        <p>எங்களுடன் தொடர்பு கொண்டமைக்கு நன்றி. விரைவில் உங்களை தொடர்பு கொள்கிறோம்.</p>
-        <br>
-        <p>நன்றி,</p>
-        <p>புதிய புரட்சி கழகம்</p>
-      `,
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #000080;">வணக்கம் ${name},</h2>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>District:</strong> ${district}</p>
+          <p><strong>Message:</strong> ${message}</p>
+
+          <p style="font-size: 16px; line-height: 1.5;">எங்களுடன் தொடர்பு கொண்டமைக்கு நன்றி. விரைவில் உங்களை தொடர்பு கொள்கிறோம்.</p>
+          <br>
+          <p style="font-size: 16px;">நன்றி,</p>
+          <p style="font-size: 16px; font-weight: bold; color: #000080;">புதிய புரட்சி கழகம்</p>
+        </div>
+      `
     });
 
-    return NextResponse.json({ message: 'Confirmation email sent' });
+    return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: error, message: 'Failed to send email' }, { status: 500 });
+    console.log('Email sending error:', error);
+    return NextResponse.json({ error: 'Email service temporarily unavailable' }, { status: 500 });
   }
 }
