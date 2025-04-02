@@ -14,6 +14,13 @@ export default function ContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    district: '',
+    message: ''
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -23,11 +30,69 @@ export default function ContactForm() {
     }));
   };
   type SubmitStatus = 'idle' | 'success' | 'error';
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {
+      name: '',
+      email: '',
+      phone: '',
+      district: '',
+      message: ''
+    };
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'பெயரை உள்ளிடவும்';
+      isValid = false;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'மின்னஞ்சலை உள்ளிடவும்';
+      isValid = false;
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'சரியான மின்னஞ்சலை உள்ளிடவும்';
+      isValid = false;
+    }
+
+    // Phone validation
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'தொலைபேசி எண்ணை உள்ளிடவும்';
+      isValid = false;
+    } else if (!phoneRegex.test(formData.phone.replace(/\D/g, ''))) {
+      newErrors.phone = 'சரியான தொலைபேசி எண்ணை உள்ளிடவும்';
+      isValid = false;
+    }
+
+    // District validation
+    if (!formData.district) {
+      newErrors.district = 'மாவட்டத்தை தேர்வு செய்க';
+      isValid = false;
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'செய்தியை உள்ளிடவும்';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
+      // First API call to store contact data
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -40,6 +105,21 @@ export default function ContactForm() {
         throw new Error('Network response was not ok');
       }
 
+      // Send confirmation email with complete form data
+      await fetch('/api/send-confirmation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          name: formData.name,
+          phone: formData.phone,
+          district: formData.district,
+          message: formData.message
+        }),
+      });
+
       setSubmitStatus('success' as SubmitStatus);
       setFormData({
         name: "",
@@ -49,25 +129,16 @@ export default function ContactForm() {
         message: ""
       });
 
-      // Send confirmation email
-      await fetch('/api/send-confirmation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          name: formData.name
-        }),
-      });
-
     } catch (error) {
-      setSubmitStatus(error as SubmitStatus);
+      setSubmitStatus('error' as SubmitStatus);
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus('idle'), 3000);
     }
   };  const inputStyles = "w-full px-4 py-2.5 xs:py-3 rounded-lg border border-gray-300 focus:border-[#000080] focus:ring-2 focus:ring-[#000080]/20 outline-none transition-all text-sm xs:text-base text-gray-800 placeholder:text-gray-400 placeholder:text-sm xs:placeholder:text-base";
+  const inputWrapperStyles = "relative";
+  const errorMessageStyles = "absolute -bottom-5 left-0 text-red-600 text-xs font-medium";
+  const errorInputStyles = "border-red-500 focus:border-red-500 focus:ring-red-200";
 
   return (
     <section className="py-12 xs:py-14 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50" id="contactForm">
@@ -95,13 +166,14 @@ export default function ContactForm() {
           <motion.form 
             onSubmit={handleSubmit}
             className="space-y-4 xs:space-y-5 sm:space-y-6"
+            noValidate
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
               <motion.div 
-                className="group"
+                className={`group ${inputWrapperStyles}`}
                 whileHover={{ scale: 1.01 }}
               >
                 <label className="block text-gray-700 text-sm xs:text-base mb-1.5 xs:mb-2 font-medium">உங்கள் முழு பெயர்</label>
@@ -111,13 +183,21 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="பெயரை உள்ளிடவும்"
-                  className={inputStyles}
-                  required
+                  className={`${inputStyles} ${errors.name ? errorInputStyles : ''}`}
                 />
+                {errors.name && (
+                  <motion.span 
+                    className={errorMessageStyles}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    {errors.name}
+                  </motion.span>
+                )}
               </motion.div>
 
               <motion.div 
-                className="group"
+                className={`group ${inputWrapperStyles}`}
                 whileHover={{ scale: 1.01 }}
               >
                 <label className="block text-gray-700 text-sm xs:text-base mb-1.5 xs:mb-2 font-medium">மின்னஞ்சல் முகவரி</label>
@@ -127,13 +207,21 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="example@mail.com"
-                  className={inputStyles}
-                  required
+                  className={`${inputStyles} ${errors.email ? errorInputStyles : ''}`}
                 />
+                {errors.email && (
+                  <motion.span 
+                    className={errorMessageStyles}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    {errors.email}
+                  </motion.span>
+                )}
               </motion.div>
 
               <motion.div 
-                className="group"
+                className={`group ${inputWrapperStyles}`}
                 whileHover={{ scale: 1.01 }}
               >
                 <label className="block text-gray-700 text-sm xs:text-base mb-1.5 xs:mb-2 font-medium">கைபேசி எண்</label>
@@ -143,13 +231,21 @@ export default function ContactForm() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+91 98765 43210"
-                  className={inputStyles}
-                  required
+                  className={`${inputStyles} ${errors.phone ? errorInputStyles : ''}`}
                 />
+                {errors.phone && (
+                  <motion.span 
+                    className={errorMessageStyles}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    {errors.phone}
+                  </motion.span>
+                )}
               </motion.div>
 
               <motion.div 
-                className="group"
+                className={`group ${inputWrapperStyles}`}
                 whileHover={{ scale: 1.01 }}
               >
                 <label className="block text-gray-700 text-sm xs:text-base mb-1.5 xs:mb-2 font-medium">உங்கள் மாவட்டம்</label>
@@ -157,8 +253,7 @@ export default function ContactForm() {
                   name="district"
                   value={formData.district}
                   onChange={handleChange}
-                  className={inputStyles}
-                  required
+                  className={`${inputStyles} ${errors.district ? errorInputStyles : ''}`}
                 >
                   <option value="">மாவட்டத்தை தேர்வு செய்க</option>
                   <option value="chennai">சென்னை மாவட்டம்</option>
@@ -170,11 +265,20 @@ export default function ContactForm() {
                   <option value="erode">ஈரோடு மாவட்டம்</option>
                   <option value="vellore">வேலூர் மாவட்டம்</option>
                 </select>
+                {errors.district && (
+                  <motion.span 
+                    className={errorMessageStyles}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    {errors.district}
+                  </motion.span>
+                )}
               </motion.div>
             </div>
 
             <motion.div 
-              className="group"
+              className={`group ${inputWrapperStyles}`}
               whileHover={{ scale: 1.01 }}
             >
               <label className="block text-gray-700 text-sm xs:text-base mb-1.5 xs:mb-2 font-medium">உங்கள் கருத்து அல்லது செய்தி</label>
@@ -184,9 +288,17 @@ export default function ContactForm() {
                 onChange={handleChange}
                 rows={5}
                 placeholder="உங்கள் கருத்துக்களை இங்கே பதிவு செய்யவும்..."
-                className={inputStyles}
-                required
+                className={`${inputStyles} ${errors.message ? errorInputStyles : ''}`}
               ></textarea>
+              {errors.message && (
+                <motion.span 
+                  className={errorMessageStyles}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  {errors.message}
+                </motion.span>
+              )}
             </motion.div>
 
             <motion.button
@@ -226,5 +338,4 @@ export default function ContactForm() {
         </motion.div>
       </div>
     </section>
-  );
-}
+  );}
